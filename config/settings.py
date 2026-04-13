@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-%k58&vjw)ai010%@t$xhi6i#hxfej!b-#r1c%!2f6pihx*lleg
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.vercel.app', 'now.sh', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -51,6 +51,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -134,7 +136,10 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
-STATICFILES_STORAGE = 'django.contirib.staticfiles.storage.StaticFilesStorage'
+
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
