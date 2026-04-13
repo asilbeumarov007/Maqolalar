@@ -11,7 +11,8 @@ SECRET_KEY = 'django-insecure-%k58&vjw)ai010%@t$xhi6i#hxfej!b-#r1c%!2f6pihx*lleg
 DEBUG = True
 
 # Vercel va mahalliy xostlar uchun ruxsatlar
-ALLOWED_HOSTS = ['*']
+
+ALLOWED_HOSTS = ['web-production-5aab.up.railway.app', 'localhost', '127.0.0.1']
 
 # Application definition
 INSTALLED_APPS = [
