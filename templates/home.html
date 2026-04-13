@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Bosh sahifa{% endblock title %}
+
+{% block content %}
+<div class="row align-items-center custom-home-row">
+    <div class="col-md-6 text-section">
+        <h1 class="display-3 fw-bold text-white mb-4">Xush kelibsiz!</h1>
+        <div class="divider mb-4"></div>
+        <p class="lead text-white-50 mb-5">
+            Bu bizning rasmiy blogimiz. Bu yerda siz dasturlash, texnologiyalar va
+            eng so'nggi yangiliklardan boxabar bo'lishingiz mumkin.
+        </p>
+        <div class="d-flex gap-3">
+            <a href="{% url 'signup' %}" class="btn btn-primary btn-lg rounded-pill px-5 shadow">
+                Hamjamiyatga qo'shiling
+            </a>
+            <a href="{% url 'article_list' %}" class="btn btn-outline-light btn-lg rounded-pill px-5" style="color: #00ff9d">
+                <h1>
+                    Maqola va Yangiliklar
+                </h1>
+            </a>
+        </div>
+    </div>
+
+    <div style="border-radius: 20px" class="col-md-6 text-center mt-5 mt-md-0">
+        <div class="hero-image-wrapper">
+            <img src="{% static 'images/dj.png' %}" class="main-featured-img" alt="tdtu" style="border-radius: 200px" height="200">
+        </div>
+        <div class="hero-image-wrapper">
+            <img src="{% static 'images/pyt.jpg' %}" class="main-featured-img" alt="Python" style="border-radius: 200px" height="200">
+        </div>
+        <div class="hero-image-wrapper">
+            <img src="{% static 'images/tdtu.jpg' %}" class="main-featured-img" alt="Django" style="border-radius: 200px" height="200">        </div>
+    </div>
+</div>
+{% endblock content %}
