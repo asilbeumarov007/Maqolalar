@@ -6,50 +6,52 @@
 {% block content %}
 <div class="container mt-5">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card shadow-sm border-0 p-4">
+        <div class="col-md-10"> <div class="card shadow-sm border-0 p-4">
                 <h2 class="mb-4 text-center">Maqolani tahrirlash</h2>
-                
+
                 <form method="post" enctype="multipart/form-data">
                     {% csrf_token %}
-                    {{ form.media }}
-                    {{ form|crispy }}
-                    <div class="d-flex justify-content-between mb-3">
-                        <h3>Maqolani tahrirlash</h3>
-                        <button type="submit" class="btn btn-success">Saqlash</button>
-                    </div>
-
-                    {{ form.body }}
-
-                    {{ form.media }}
-                    <button type="submit" class="btn btn-primary mt-3">O'zgarishlarni saqlash</button>
-                    <div class="d-grid gap-2 mt-4">
-                        <form method="post" enctype="multipart/form-data">
-                            {% csrf_token %}
-                            {{ form.as_p }}
-
-                                <hr>
-                            <h5 class="mt-4">Qo'shimcha rasmlarni boshqarish:</h5>
-                            {{ images.management_form }}
-                            <div class="row">
-                                {% for image_form in images %}
-                                <div class="col-md-4 mb-3 border p-2">
-                                    {% if image_form.instance.pk %}
-                                    <img src="{{ image_form.instance.image.url }}" class="img-thumbnail mb-2" style="height: 100px;">
-                                    {% endif %}
-                                    {{ image_form.as_p }}
-                                </div>
-                                {% endfor %}
-                            </div>
-
-    <button type="submit" class="btn btn-success mt-3">O'zgarishlarni saqlash</button>
-</form>
-                        <button type="submit" class="btn btn-success btn-lg">
+                    {{ form.media }} <div class="d-flex justify-content-between align-items-center mb-4 bg-light p-3 rounded">
+                        <h4 class="mb-0">Maqola mazmuni</h4>
+                        <button type="submit" class="btn btn-success px-4">
                             <i class="fas fa-save me-2"></i> Saqlash
                         </button>
-                        <a href="{% url 'article_detail' article.pk %}" class="btn btn-outline-secondary">
+                    </div>
+
+                    <div class="mb-4">
+                        {{ form|crispy }}
+                    </div>
+
+                    <hr class="my-5">
+
+                    <div class="additional-images-section">
+                        <h5 class="mb-4"><i class="fas fa-images me-2"></i> Qo'shimcha rasmlarni boshqarish:</h5>
+                        {{ images.management_form }}
+                        <div class="row">
+                            {% for image_form in images %}
+                            <div class="col-md-4 mb-3">
+                                <div class="card h-100 p-2 border">
+                                    {% if image_form.instance.pk %}
+                                    <div class="text-center mb-2">
+                                        <img src="{{ image_form.instance.image.url }}" class="img-thumbnail" style="height: 120px; object-fit: cover;">
+                                    </div>
+                                    {% endif %}
+                                    <div class="small">
+                                        {{ image_form|crispy }}
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-5 border-top pt-4">
+                        <a href="{% url 'article_detail' article.pk %}" class="btn btn-outline-secondary btn-lg px-5 me-md-2">
                             Bekor qilish
                         </a>
+                        <button type="submit" class="btn btn-success btn-lg px-5">
+                            <i class="fas fa-check-circle me-2"></i> O'zgarishlarni saqlash
+                        </button>
                     </div>
                 </form>
             </div>
