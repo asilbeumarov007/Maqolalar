@@ -14,7 +14,15 @@
                     {% csrf_token %}
                     {{ form.media }}
                     {{ form|crispy }}
-                    
+                    <div class="d-flex justify-content-between mb-3">
+                        <h3>Maqolani tahrirlash</h3>
+                        <button type="submit" class="btn btn-success">Saqlash</button>
+                    </div>
+
+                    {{ form.body }}
+
+                    {{ form.media }}
+                    <button type="submit" class="btn btn-primary mt-3">O'zgarishlarni saqlash</button>
                     <div class="d-grid gap-2 mt-4">
                         <form method="post" enctype="multipart/form-data">
                             {% csrf_token %}
