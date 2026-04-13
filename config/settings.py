@@ -117,3 +117,4 @@ CKEDITOR_CONFIGS = {
 }
 CKEDITOR_UPLOAD_PATH = 'uploads/'
 CKEDITOR_RESTRICT_BY_USER = True
+CSRF_TRUSTED_ORIGINS = ['https://web-production-5aab.up.railway.app']
