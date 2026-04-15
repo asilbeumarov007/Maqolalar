@@ -251,6 +251,28 @@
         .col-md-6 text-center mt-5 mt-md-0 {
             border-radius: 20px;
         }
+        .top-bar {
+            font-size: 14px;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .social-icons a {
+            transition: 0.3s;
+            font-size: 18px;
+        }
+
+        .social-icons a:hover {
+            color: #0088cc; /* Telegram ko'k rangi */
+            transform: scale(1.1);
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+        }
+        .social-icons d-flex gap-3{
+            align-items: center;
+        }
     </style>
     {% block extrahead %}{% endblock %}
 </head>
@@ -264,6 +286,18 @@
         </a>
 
 
+        <div class="top-bar py-2 text-white" >
+            <div class="container d-flex justify-content-between align-items-center flex-wrap">
+                <div class="social-icons d-flex gap-3" >
+                    <span><a href="https://t.me/ASUadmins" class="text-white" style="color: #508393;"><i style="color: #2c96c3;" class="fab fa-telegram"></i>Telegram</a></span><hr><hr>
+                </div>
+                <div class="contact-info d-flex gap-4 small">
+                    <span><i style="color: #12af12;" class="fas fa-phone-alt me-1"></i> +998 90 686 6699</span>
+                    <span><i style="color: #e38a8a;" class="fas fa-envelope me-1"></i> asilbeumarov007@gmail.com </span><hr>
+                </div>
+            </div>
+
+        </div>
         <div class="nav-auth-section">
             {% if user.is_authenticated %}
                 <div class="dropdown">
